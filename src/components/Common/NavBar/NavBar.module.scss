@@ -1,0 +1,35 @@
+.navBar {
+  ul {
+    display: flex;
+    gap: 32px;
+
+    .linkText {
+      position: relative;
+      color: var(--white);
+
+      &.active {
+        color: var(--yellow);
+
+        &::after {
+          cursor: default;
+          content: "";
+          pointer-events: none;
+          position: absolute;
+          left: 1px;
+          bottom: -8px;
+          width: 24px;
+          height: 1px;
+          background: var(--yellow);
+        }
+      }
+
+      &:hover {
+        color: var(--yellow-hover);
+
+        &::after {
+          background: var(--yellow-hover);
+        }
+      }
+    }
+  }
+}
