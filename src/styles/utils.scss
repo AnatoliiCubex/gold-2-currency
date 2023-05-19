@@ -1,0 +1,10 @@
+.container {
+  padding: 0 10rem;
+  width: 100%;
+  max-width: unset;
+}
+
+.myTransition {
+  transition: var(--transition-property) var(--transition-duration)
+    var(--transition-function);
+}
