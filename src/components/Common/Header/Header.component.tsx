@@ -5,6 +5,7 @@ import Image from "next/image";
 import { NavBar } from "../NavBar";
 
 import styles from "./Header.module.scss";
+import { Select } from "@components/UI/Select";
 
 export const HeaderComponent = () => {
   const headerClassName = classNames(`${styles.header} container`);
@@ -15,6 +16,7 @@ export const HeaderComponent = () => {
         <Image src={"/images/logo.png"} fill alt='logo' priority />
       </div>
       <NavBar />
+      <Select id='currencySelector' />
     </header>
   );
 };
