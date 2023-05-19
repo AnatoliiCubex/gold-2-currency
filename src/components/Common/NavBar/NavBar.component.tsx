@@ -9,6 +9,7 @@ import styles from "./NavBar.module.scss";
 
 export const NavBarComponent = () => {
   const [activeTab, setActiveTab] = useState(navBarLinks[0]);
+
   return (
     <nav className={styles.navBar + " myTransition"}>
       <ul>
