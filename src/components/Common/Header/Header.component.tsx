@@ -16,18 +16,23 @@ export const HeaderComponent = () => {
 
   return (
     <header className={headerClassName}>
-      <div className={styles.logoContainer}>
-        <Image src={"/images/logo.png"} fill alt='logo' priority />
+      <div className={styles.logoAndNavBarContainer}>
+        <div className={styles.logoContainer}>
+          <Image src={"/images/logo.png"} fill alt='logo' priority />
+        </div>
+        <NavBar />
       </div>
-      <NavBar />
-      <Select id='currencySelector' options={currencyOptions} />
-      <div className={styles.buttonsContainer}>
-        <Link href=''>
-          <Button text='Sign up' variant={ButtonVariantEnum.text} />
-        </Link>
-        <Link href=''>
-          <Button text='Login' />
-        </Link>
+
+      <div className={styles.selectAndButtonsContainer}>
+        <Select id='currencySelector' options={currencyOptions} />
+        <div className={styles.buttonsContainer}>
+          <Link href=''>
+            <Button text='Sign up' variant={ButtonVariantEnum.text} />
+          </Link>
+          <Link href=''>
+            <Button text='Login' />
+          </Link>
+        </div>
       </div>
     </header>
   );
