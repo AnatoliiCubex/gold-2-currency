@@ -5,7 +5,7 @@
   display: inline-flex;
   gap: 10px;
   min-height: inherit;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
   border: none;
   outline: none;
@@ -16,19 +16,19 @@
 
   &_variant {
     &_primary {
-      border: 2px solid var(--white);
-      background: var(--light-primary);
-      color: var(--white);
-      stroke: var(--white);
+      border: 2px solid var(--yellow);
+      background: var(--yellow);
+      color: var(--dark);
+      stroke: var(--dark);
 
       &:hover {
-        background: var(--white);
-        stroke: var(--light-primary);
-        color: var(--light-primary);
+        background: var(--yellow-hover);
+        border-color: var(--yellow-hover);
       }
 
       &:active {
-        background: var(--dark-primary);
+        background: var(--yellow);
+        border-color: var(--yellow);
       }
 
       &.disabled {
@@ -42,65 +42,19 @@
       }
     }
 
-    &_secondary {
-      background: var(--ultra-light-primary);
-      color: var(--primary);
-      stroke: var(--primary);
+    &_text {
+      border: none;
+      background: none;
+      color: var(--white);
+      stroke: var(--white);
 
       &:hover {
-        background: var(--primary);
-        color: var(--white);
-        stroke: var(--white);
-      }
-
-      &:active {
-        background: rgba($color: var(--primary), $alpha: 0.2);
-        color: var(--primary);
-        stroke: var(--primary);
-      }
-
-      &.disabled {
-        background: var(--ultra-light-primary);
-
-        & * {
-          opacity: 0.4;
-        }
-      }
-
-      &.loading {
-        .loader {
-          background: var(--ultra-light-primary);
-          color: var(--primary);
-        }
-      }
-    }
-
-    &_outlined {
-      background: var(--white);
-      color: var(--light-primary);
-      stroke: var(--light-primary);
-      border: 2px solid var(--light-primary);
-
-      &:hover {
-        background: var(--light-primary);
-        color: var(--white);
-        stroke: var(--white);
-      }
-
-      &:active {
-        background: var(--ultra-light-primary);
-        color: var(--light-primary);
-        stroke: var(--light-primary);
-      }
-
-      &.disabled {
-        opacity: 0.4;
+        opacity: 0.8;
       }
 
       &.loading {
         .loader {
           background: var(--white);
-          color: var(--light-primary);
         }
       }
     }
@@ -117,17 +71,17 @@
 
   &_size {
     &_sm {
-      height: 36px;
+      height: 29px;
       padding: 0 10px;
     }
 
     &_md {
-      height: 40px;
-      padding: 0 16px;
+      height: 33px;
+      padding: 8px 24px;
     }
 
     &_lg {
-      height: 44px;
+      height: 37px;
       padding: 0 18px;
     }
   }

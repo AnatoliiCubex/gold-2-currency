@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 import { IconsEnum, SvgIcon } from "@components/UI/SvgIcon";
-import { TextSizeEnum, Text } from "@components/UI/Text";
+import { TextSizeEnum, Text, FontWeightEnum } from "@components/UI/Text";
 
 import { ButtonProps, ButtonVariantEnum } from "./Button.types";
 
@@ -59,7 +59,11 @@ export const ButtonComponent = ({
         <SvgIcon src={IconsEnum.loader} size={30} />
       </div>
       {icon && <SvgIcon src={icon} size={20} />}
-      {text && <Text size={textSizeMap[size]}>{text}</Text>}
+      {text && (
+        <Text size={textSizeMap[size]} fontWeight={FontWeightEnum.FW600}>
+          {text}
+        </Text>
+      )}
     </button>
   );
 };

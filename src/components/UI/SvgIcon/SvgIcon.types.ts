@@ -6,6 +6,8 @@ export enum IconsEnum {
   eu = "/icons/color/eu.svg",
   uk = "/icons/color/uk.svg",
   usa = "/icons/color/usa.svg",
+
+  loader = "/icons/stroke/loader.svg",
 }
 
 export type SvgIconProps = {

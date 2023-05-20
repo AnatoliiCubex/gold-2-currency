@@ -5,18 +5,26 @@ import Select, {
   components,
 } from "react-select";
 
-import { SvgIcon } from "../SvgIcon";
+import { IconsEnum, SvgIcon } from "../SvgIcon";
 import { FontWeightEnum, Text, TextSizeEnum } from "../Text";
 
-import { currencyOptions } from "./constants";
+// import { currencyOptions } from "./constants";
 import styles from "./Select.module.scss";
 
 type SelectOptionType = { label: string; value: string } | null;
+type Props = {
+  id: string;
+  options: {
+    value: string;
+    label: string;
+    icon?: IconsEnum;
+  }[];
+};
 
-export const SelectComponent: React.FC<{ id: string }> = ({ id }) => {
+export const SelectComponent: React.FC<Props> = ({ id, options }) => {
   const { Option, SingleValue } = components;
   const [selectedOption, setSelectedOption] = useState<SelectOptionType>(
-    currencyOptions[0]
+    options[0]
   );
 
   const handleChange = (
@@ -51,7 +59,7 @@ export const SelectComponent: React.FC<{ id: string }> = ({ id }) => {
       instanceId={id}
       className={styles.select + " myTransition"}
       classNamePrefix={"react-select"}
-      options={currencyOptions}
+      options={options}
       value={selectedOption}
       onChange={handleChange}
       isSearchable={false}

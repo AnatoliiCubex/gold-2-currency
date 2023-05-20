@@ -4,9 +4,7 @@ import { IconsEnum } from "@components/UI/SvgIcon";
 
 export enum ButtonVariantEnum {
   primary = "primary",
-  secondary = "secondary",
-  red = "red",
-  outlined = "outlined",
+  text = "text",
 }
 
 export type ButtonProps = {
