@@ -6,9 +6,12 @@ import { FontWeightEnum, Text, TextSizeEnum } from "@components/UI/Text";
 import { navBarLinks } from "./constants";
 
 import styles from "./NavBar.module.scss";
+import { DropDown } from "@components/UI/DropDown";
+import { IconsEnum, SvgIcon } from "@components/UI/SvgIcon";
 
 export const NavBarComponent = () => {
   const [activeTab, setActiveTab] = useState(navBarLinks[0]);
+  const [isOpenHiddenLinks, setIsOpenHiddenLinks] = useState(false);
 
   return (
     <nav className={styles.navBar + " myTransition"}>
@@ -28,6 +31,21 @@ export const NavBarComponent = () => {
             </Link>
           </li>
         ))}
+        <span
+          style={{
+            position: "relative",
+            // display: "flex",
+            // alignItems: "center",
+          }}
+        >
+          <SvgIcon
+            src={IconsEnum.dots}
+            onClick={() => setIsOpenHiddenLinks(!isOpenHiddenLinks)}
+          />
+          <DropDown isOpen={isOpenHiddenLinks} setIsOpen={setIsOpenHiddenLinks}>
+            123
+          </DropDown>
+        </span>
       </ul>
     </nav>
   );
