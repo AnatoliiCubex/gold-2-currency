@@ -1,6 +1,5 @@
 .select {
   margin-left: auto;
-  // outline: 1px solid red;
   border: none;
   color: var(--dark);
 
@@ -21,7 +20,11 @@
 
   & [class*="-singleValue"] {
     color: var(--white);
-    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
   }
 
   & [class*="-placeholder"] {
@@ -32,6 +35,7 @@
   & [class*="-indicatorContainer"] {
     color: var(--white);
     transition: all 0.3s ease;
+    padding: 0px;
   }
 
   &:hover {
@@ -52,20 +56,20 @@
     //   color: var(--yellow-hover);
     // }
   }
+}
 
-  &:focus-within {
-    & [class*="-indicatorContainer"] {
-      color: var(--yellow);
-      transform: rotate(180deg);
-    }
+.react-select__control--menu-is-open {
+  & [class*="-indicatorContainer"] {
+    color: var(--yellow);
+    transform: rotate(180deg);
+  }
 
-    & [class*="-placeholder"] {
-      color: var(--yellow);
-    }
+  & [class*="-placeholder"] {
+    color: var(--yellow);
+  }
 
-    & [class*="-singleValue"] {
-      color: var(--yellow);
-    }
+  & [class*="-singleValue"] {
+    color: var(--yellow);
   }
 }
 
@@ -88,11 +92,11 @@
   &__menu {
     margin: 0 !important;
     padding: 14px 0px;
-    width: 100px !important;
+    width: 105px !important;
     min-width: 100%;
     background-color: var(--dark) !important;
-    border: 1px solid red;
     left: -10px;
+    box-shadow: unset !important;
 
     &-list {
       padding: 0 !important;
@@ -102,12 +106,12 @@
   &__option {
     display: flex !important;
     align-items: center;
+    gap: 8px;
     background-color: transparent !important;
     color: #fff !important;
     cursor: pointer !important;
     line-height: 21px;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+    padding: 8px 12px;
     &:hover {
       background: rgba(44, 62, 103, 0.2) !important;
       border-right: 2px solid #e9b109 !important;
