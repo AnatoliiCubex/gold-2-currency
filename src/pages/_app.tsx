@@ -1,28 +1,28 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 import type { AppProps } from "next/app";
 
 import { Layout } from "@components/Common/Layout";
-import { Loader } from "@components/Common/Loader";
+// import { Loader } from "@components/Common/Loader";
 
 import "@styles/index.scss";
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const handleStartRouteChanging = () => setLoading(true);
-    const handleCompleteRouteChanging = () => setLoading(false);
+  // useEffect(() => {
+  //   const handleStartRouteChanging = () => setLoading(true);
+  //   const handleCompleteRouteChanging = () => setLoading(false);
 
-    router.events.on("routeChangeStart", handleStartRouteChanging);
-    router.events.on("routeChangeComplete", handleCompleteRouteChanging);
+  //   router.events.on("routeChangeStart", handleStartRouteChanging);
+  //   router.events.on("routeChangeComplete", handleCompleteRouteChanging);
 
-    return () => {
-      router.events.off("routeChangeStart", handleStartRouteChanging);
-      router.events.off("routeChangeComplete", handleCompleteRouteChanging);
-    };
-  }, []);
+  //   return () => {
+  //     router.events.off("routeChangeStart", handleStartRouteChanging);
+  //     router.events.off("routeChangeComplete", handleCompleteRouteChanging);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -38,7 +38,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         </CSSTransition>
       </SwitchTransition>
 
-      <Loader loading={loading} />
+      {/* <Loader loading={loading} /> */}
     </>
   );
 }

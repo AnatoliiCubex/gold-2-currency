@@ -40,7 +40,7 @@ export const PriceCalculatorComponent = () => {
         style={{ width: "fit-content" }}
       />
       <Button
-        text='Reset'
+        text='Reset values'
         variant={ButtonVariantEnum.text}
         width='full'
         className={styles.resetButton}
