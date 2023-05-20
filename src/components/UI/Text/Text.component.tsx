@@ -25,7 +25,6 @@ const htmlTagMapping = {
 } as const;
 
 export const TextComponent = ({
-  //   id,
   children,
   className,
   dots,
@@ -33,7 +32,6 @@ export const TextComponent = ({
   style,
   textTransform,
   size,
-  //   tooltip,
   onClick,
   ...props
 }: PropsWithChildren<TextProps>) => {
@@ -41,6 +39,7 @@ export const TextComponent = ({
 
   const textClass = classNames(
     styles.text,
+    " myTransition",
     {
       [styles[`text_size_${size}`]]: size,
       [styles[`text_fontWeight_${fontWeight}`]]: fontWeight,
@@ -56,15 +55,10 @@ export const TextComponent = ({
         className={textClass}
         onClick={onClick}
         style={{ ...style }}
-        // id={id}
-        // data-tooltip-id={tooltip?.id}
-        // data-tooltip-content={tooltip?.text}
         {...props}
       >
         {children}
       </HtmlTag>
-
-      {/* {tooltip && <CustomTooltip data-tooltip-id={tooltip.id} />} */}
     </>
   );
 };

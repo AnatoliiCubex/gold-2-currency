@@ -1,6 +1,4 @@
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
+@import "../components/UI/Select/Select.module.scss";
 
 :root {
   --transition-property: all;
@@ -17,6 +15,7 @@
 html,
 body {
   max-width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -26,10 +25,9 @@ body {
 }
 
 a {
-  color: #0070f3;
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
+ul {
+  list-style-type: none;
 }

@@ -1,15 +1,13 @@
 import { CSSProperties } from "react";
 
 export enum IconsEnum {
-  exit = "/icons/stroke/exit.svg",
+  australia = "/icons/color/australia.svg",
+  canada = "/icons/color/canada.svg",
+  eu = "/icons/color/eu.svg",
+  uk = "/icons/color/uk.svg",
+  usa = "/icons/color/usa.svg",
+
   loader = "/icons/stroke/loader.svg",
-  cart = "/icons/stroke/cart.svg",
-  search = "/icons/stroke/search.svg",
-  info = "/icons/stroke/info.svg",
-  moon = "/icons/stroke/moon.svg",
-  sun = "/icons/stroke/sun.svg",
-  cross = "/icons/stroke/cross.svg",
-  help = "/icons/stroke/help.svg",
 }
 
 export type SvgIconProps = {

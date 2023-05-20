@@ -1,0 +1,121 @@
+.select {
+  margin-left: auto;
+  border: none;
+  color: var(--dark);
+
+  & [class*="-control"] {
+    cursor: pointer;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+  }
+
+  & [class*="-ValueContainer"] {
+    padding: 0px;
+  }
+
+  & [class*="-Input"] {
+    color: var(--white);
+  }
+
+  & [class*="-singleValue"] {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  & [class*="-placeholder"] {
+    color: var(--white);
+    transition: all 0.3s ease;
+  }
+
+  & [class*="-indicatorContainer"] {
+    color: var(--white);
+    transition: all 0.3s ease;
+    padding: 0px;
+  }
+
+  &:hover {
+    // arrow
+    & [class*="-indicatorContainer"] {
+      color: var(--yellow-hover);
+    }
+
+    & [class*="-placeholder"] {
+      color: var(--yellow-hover);
+    }
+
+    & [class*="-singleValue"] {
+      color: var(--yellow-hover);
+    }
+    // vertical divider
+    // [class*="-indicatorSeparator"] {
+    //   color: var(--yellow-hover);
+    // }
+  }
+}
+
+.react-select__control--menu-is-open {
+  & [class*="-indicatorContainer"] {
+    color: var(--yellow);
+    transform: rotate(180deg);
+  }
+
+  & [class*="-placeholder"] {
+    color: var(--yellow);
+  }
+
+  & [class*="-singleValue"] {
+    color: var(--yellow);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.react-select {
+  &__menu {
+    margin: 0 !important;
+    padding: 14px 0px;
+    width: 105px !important;
+    min-width: 100%;
+    background-color: var(--dark) !important;
+    left: -10px;
+    box-shadow: unset !important;
+
+    &-list {
+      padding: 0 !important;
+    }
+  }
+
+  &__option {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    line-height: 21px;
+    padding: 8px 12px;
+    &:hover {
+      background: rgba(44, 62, 103, 0.2) !important;
+      border-right: 2px solid #e9b109 !important;
+      color: var(--yellow) !important;
+    }
+  }
+}

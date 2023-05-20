@@ -8,7 +8,7 @@ type LayoutProps = {
   children: React.ReactNode;
 };
 
-const siteTitle = "Gold2Currency";
+const siteTitle = "Probemas";
 
 export const LayoutComponent: React.FC<LayoutProps> = ({ children }) => {
   const layoutClassName = classNames(`${styles.layout}`);
