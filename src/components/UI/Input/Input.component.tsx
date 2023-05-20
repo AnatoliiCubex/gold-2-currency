@@ -54,7 +54,7 @@ export const InputComponent = forwardRef<HTMLInputElement, InputProps>(
 
     const inputClass = classNames(
       styles.input,
-
+      "myTransition",
       {
         [styles.input_focused]: isFocused,
         [styles.input_error]: !!errorMessage || hasError,
@@ -62,6 +62,10 @@ export const InputComponent = forwardRef<HTMLInputElement, InputProps>(
       },
       className
     );
+
+    const labelClass = classNames(styles.inputLabel, {
+      [styles.labelMoved]: !!value,
+    });
 
     const rightBlockClass = classNames(styles.rightBlock, rightBlockClassName);
 
@@ -74,7 +78,7 @@ export const InputComponent = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={inputClass} style={style}>
         {!!label && (
-          <Text size={TextSizeEnum.S14} className={styles.inputLabel}>
+          <Text size={TextSizeEnum.S14} className={labelClass}>
             {label}
           </Text>
         )}

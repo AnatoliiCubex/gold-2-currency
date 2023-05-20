@@ -21,8 +21,8 @@ export type InputProps = {
   rightBlock?: ReactNode;
   rightBlockClassName?: string;
   style?: CSSProperties;
-  type?: "password" | "text";
-  value: string;
+  type?: "password" | "text" | "number";
+  value: string | number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
