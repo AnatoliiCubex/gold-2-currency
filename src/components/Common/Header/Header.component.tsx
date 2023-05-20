@@ -27,10 +27,10 @@ export const HeaderComponent = () => {
         <Select id='currencySelector' options={currencyOptions} />
         <div className={styles.buttonsContainer}>
           <Link href=''>
-            <Button text='Sign up' variant={ButtonVariantEnum.text} />
+            <Button text='Sign Up' variant={ButtonVariantEnum.text} />
           </Link>
           <Link href=''>
-            <Button text='Login' />
+            <Button text='Log in' />
           </Link>
         </div>
       </div>
