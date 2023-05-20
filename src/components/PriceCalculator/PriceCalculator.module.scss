@@ -2,4 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.resetButton {
+  border: 2px solid var(--dark);
+  color: var(--dark);
+  padding: 8px 24px !important;
 }
