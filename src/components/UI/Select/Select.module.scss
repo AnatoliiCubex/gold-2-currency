@@ -83,3 +83,35 @@
 .menu {
   animation: fadeIn 0.2s ease-in-out;
 }
+
+.react-select {
+  &__menu {
+    margin: 0 !important;
+    padding: 14px 0px;
+    width: 100px !important;
+    min-width: 100%;
+    background-color: var(--dark) !important;
+    border: 1px solid red;
+    left: -10px;
+
+    &-list {
+      padding: 0 !important;
+    }
+  }
+
+  &__option {
+    display: flex !important;
+    align-items: center;
+    background-color: transparent !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    line-height: 21px;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    &:hover {
+      background: rgba(44, 62, 103, 0.2) !important;
+      border-right: 2px solid #e9b109 !important;
+      color: var(--yellow) !important;
+    }
+  }
+}
