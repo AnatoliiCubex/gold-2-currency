@@ -40,7 +40,7 @@ type Props = {
 
 export function CurrencyProvider({ children }: Props) {
   const [currency, setCurrency] = useState<SingleValue<SelectOptionType>>(
-    currencyOptions[1]
+    currencyOptions[0]
   );
 
   const changeCurrency = (newValue: SingleValue<SelectOptionType>) => {
