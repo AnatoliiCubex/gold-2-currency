@@ -45,7 +45,9 @@ export const PriceCalculatorComponent = () => {
       <Input
         id='price'
         label='Price'
-        value={`${currency?.value}: ${price.toFixed(2) || ""}`}
+        value={
+          goldAmount > 0 ? `${currency?.value}: ${price.toFixed(2) || ""} ` : ""
+        }
         style={{ width: "fit-content" }}
         disabled
       />
