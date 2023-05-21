@@ -1,6 +1,8 @@
 .navBar {
-  & ul {
+  // stroke: var(--white);
+  & .linksList {
     display: flex;
+    align-items: center;
     gap: 32px;
 
     & .linkText {
@@ -37,5 +39,228 @@
         }
       }
     }
+  }
+
+  & .hiddenLinksDropDown {
+    top: 45px;
+    min-width: 140px;
+    padding-bottom: 15px;
+    background-color: var(--dark);
+    white-space: nowrap;
+    max-height: unset;
+    border-radius: 0;
+  }
+
+  & .hiddenLinksList {
+    padding-top: 5px;
+    background-color: var(--dark);
+
+    & li {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 8px;
+      background-color: transparent !important;
+      color: #fff !important;
+      cursor: pointer !important;
+      line-height: 21px;
+      padding: 8px 12px;
+
+      &:hover {
+        background: rgba(44, 62, 103, 0.2) !important;
+        border-right: 2px solid #e9b109 !important;
+
+        & a * {
+          color: var(--yellow-hover);
+        }
+      }
+
+      & .dropDownLinkText {
+        position: relative;
+        color: var(--white);
+
+        &.active {
+          color: var(--yellow);
+        }
+
+        &:hover {
+          color: var(--yellow-hover);
+        }
+      }
+    }
+  }
+}
+
+.hiddenLinksToggle {
+  display: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.burger-icon-container {
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 22px;
+  height: 2px;
+  background-color: var(--white);
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 7px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -7px) rotate(45deg);
+}
+
+.dropDownSelect {
+  margin: unset !important;
+  width: 100%;
+
+  border-bottom: 1px solid #ffffff20 !important;
+  margin-top: 7px !important;
+  margin-bottom: 16px !important;
+
+  & [class*="react-select__menu"] {
+    position: unset !important;
+    padding: 0px !important;
+
+    & [class*="react-select__option"] {
+      padding-left: 0px !important;
+    }
+  }
+}
+
+.dropDownButtons {
+  height: 100vh;
+  & a {
+    height: fit-content;
+  }
+}
+
+@media (max-width: 1340px) {
+  .hiddenLinksToggle {
+    display: block;
+  }
+
+  .link-reward.chests {
+    display: none;
+  }
+
+  .dropdown-link-reward.chests {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1250px) {
+  .link-osrs.accounts {
+    display: none;
+  }
+
+  .dropdown-link-osrs.accounts {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .link-osrs.items {
+    display: none;
+  }
+
+  .dropdown-link-osrs.items {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .link-sell.rs.gold {
+    display: none;
+  }
+
+  .dropdown-link-sell.rs.gold {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .link-rs3.gold {
+    display: none;
+  }
+
+  .dropdown-link-rs3.gold {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .link-osrs.gold {
+    display: none;
+  }
+
+  .dropdown-link-osrs.gold {
+    display: flex !important;
+  }
+
+  .hiddenLinksToggle {
+    position: unset;
+  }
+
+  .navBar {
+    & .hiddenLinksDropDown {
+      padding: 0 1.4rem;
+      top: 79px;
+      width: 100vw;
+      max-height: unset !important;
+      background-color: var(--dark);
+    }
+
+    & .hiddenLinksList {
+      height: 100vh;
+      & li {
+        padding: 11px;
+        padding-left: 0px;
+        max-height: 40px;
+        border-top: 1px solid #ffffff20;
+
+        &:last-of-type {
+          border-bottom: 1px solid #ffffff20;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .navBar {
+    & .hiddenLinksDropDown {
+      top: 79px;
+      width: 100vw;
+      max-height: unset !important;
+      background-color: var(--dark);
+    }
+
+    & .hiddenLinksList {
+      height: fit-content;
+    }
+  }
+
+  .dropDownSelect {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 550px) {
+  .dropDownSelect {
+    height: fit-content;
   }
 }

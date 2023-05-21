@@ -31,7 +31,20 @@
   gap: 36px;
 }
 
-.buttonsContainer {
-  display: flex;
-  gap: 23.5px;
+@media (max-width: 768px) {
+  .logoContainer {
+    order: 2;
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    justify-content: unset;
+    gap: 40px;
+    white-space: nowrap;
+  }
+  .logoAndNavBarContainer {
+    width: 100%;
+    justify-content: space-between;
+  }
 }

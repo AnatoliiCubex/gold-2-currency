@@ -1,0 +1,70 @@
+.dropDown {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  border-radius: 4px;
+  padding: 0px;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  min-width: 160px;
+  z-index: 1;
+  box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+.dropDown:not(.accordion-container .dropDown) {
+  --transition-time: 0s;
+}
+
+.modal:not(.import-services) .modal-content .dropDown {
+  padding: 0px;
+  margin-top: 35px;
+}
+
+.dropDown.dropDown-active {
+  opacity: 1;
+  pointer-events: all;
+  grid-template-rows: 1fr;
+}
+
+.dropDown_variant_accordion {
+  overflow: hidden;
+  z-index: 0;
+  border: none;
+}
+
+.dropDown_variant_accordion:focus-within {
+  z-index: 1;
+}
+
+.children {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropDown-open-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.dropDown-open-button path {
+  fill: #000;
+}
+
+.dropDown-open-button-disabled {
+  cursor: not-allowed !important;
+}
+
+.dropDown .action-item {
+  background-color: #fff;
+}
