@@ -95,6 +95,7 @@
     width: 105px !important;
     min-width: 100%;
     background-color: var(--dark) !important;
+    top: 44px !important;
     left: -10px;
     box-shadow: unset !important;
 
@@ -116,6 +117,15 @@
       background: rgba(44, 62, 103, 0.2) !important;
       border-right: 2px solid #e9b109 !important;
       color: var(--yellow) !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .react-select {
+    &__option {
+      padding: 12px !important;
+      max-height: 40px;
     }
   }
 }

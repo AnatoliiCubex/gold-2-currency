@@ -1,6 +1,6 @@
 .navBar {
   stroke: var(--white);
-  & ul {
+  & .linksList {
     display: flex;
     align-items: center;
     gap: 32px;
@@ -42,14 +42,16 @@
   }
 
   & .hiddenLinksDropDown {
-    top: 40px;
+    top: 45px;
     min-width: 140px;
     white-space: nowrap;
+    max-height: unset;
     border-radius: 0;
   }
 
   & .hiddenLinksList {
     padding: 15px 0px;
+    padding-top: 5px;
     gap: 0px;
     flex-direction: column;
     background-color: var(--dark);
@@ -67,7 +69,9 @@
       &:hover {
         background: rgba(44, 62, 103, 0.2) !important;
         border-right: 2px solid #e9b109 !important;
-        color: var(--yellow) !important;
+        & a * {
+          color: var(--yellow-hover);
+        }
       }
     }
   }
@@ -134,7 +138,28 @@
 }
 
 @media (max-width: 768px) {
-  .hiddenLinksToggle {
+  .link-osrs.gold {
     display: none;
   }
+
+  .dropdown-link-osrs.gold {
+    display: flex !important;
+  }
+
+  .navBar {
+    // & .linksList {
+    //   display: none;
+    // }
+
+    & .hiddenLinksList {
+      & li {
+        padding: 11px;
+        max-height: 40px;
+      }
+    }
+  }
+
+  // .hiddenLinksToggle {
+  //   display: none;
+  // }
 }

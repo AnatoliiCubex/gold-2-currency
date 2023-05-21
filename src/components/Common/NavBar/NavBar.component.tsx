@@ -15,7 +15,7 @@ export const NavBarComponent = () => {
 
   return (
     <nav className={styles.navBar + " myTransition"}>
-      <ul>
+      <ul className={styles.linksList}>
         {navBarLinks.map((link, index) => (
           <li
             key={index}
@@ -38,7 +38,7 @@ export const NavBarComponent = () => {
 
         <li className={styles.hiddenLinksToggle}>
           <SvgIcon
-            src={IconsEnum.dots}
+            src={IconsEnum.burger}
             onClick={() => setIsOpenHiddenLinks(!isOpenHiddenLinks)}
           />
           <DropDown
