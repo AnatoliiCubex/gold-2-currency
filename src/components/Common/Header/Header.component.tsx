@@ -19,6 +19,7 @@ export const HeaderComponent = () => {
   const { currency, changeCurrency } = useCurrency();
   const screenLowerThan650px = useMediaQuery("(max-width: 650px)");
   const screenLowerThan550px = useMediaQuery("(max-width: 550px)");
+  const screenLowerThan360px = useMediaQuery("(max-width: 360px)");
 
   return (
     <header className={headerClassName}>
@@ -35,28 +36,29 @@ export const HeaderComponent = () => {
         />
       </div>
 
-      {!(isOpenHiddenLinks && screenLowerThan550px) && (
-        <div className={styles.selectAndButtonsContainer}>
-          {!screenLowerThan650px && (
-            <Select
-              id='currencySelector'
-              value={currency}
-              options={currencyOptions}
-              setOptions={changeCurrency}
-            />
-          )}
-          <div className={"buttonsContainer"}>
-            {!screenLowerThan550px && (
-              <Link href=''>
-                <Button text='Sign Up' variant={ButtonVariantEnum.text} />
-              </Link>
+      {!(isOpenHiddenLinks && screenLowerThan550px) &&
+        !screenLowerThan360px && (
+          <div className={styles.selectAndButtonsContainer}>
+            {!screenLowerThan650px && (
+              <Select
+                id='currencySelector'
+                value={currency}
+                options={currencyOptions}
+                setOptions={changeCurrency}
+              />
             )}
-            <Link href=''>
-              <Button text='Log in' />
-            </Link>
+            <div className={"buttonsContainer"}>
+              {!screenLowerThan550px && (
+                <Link href=''>
+                  <Button text='Sign Up' variant={ButtonVariantEnum.text} />
+                </Link>
+              )}
+              <Link href=''>
+                <Button text='Log in' />
+              </Link>
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </header>
   );
 };
