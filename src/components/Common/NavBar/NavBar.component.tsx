@@ -17,7 +17,11 @@ export const NavBarComponent = () => {
     <nav className={styles.navBar + " myTransition"}>
       <ul>
         {navBarLinks.map((link, index) => (
-          <li key={index} onClick={() => setActiveTab(link)}>
+          <li
+            key={index}
+            onClick={() => setActiveTab(link)}
+            className={`link-${link.title.toLowerCase()}`}
+          >
             <Link href={link.path}>
               <Text
                 size={TextSizeEnum.S14}
@@ -31,21 +35,44 @@ export const NavBarComponent = () => {
             </Link>
           </li>
         ))}
-        <span
-          style={{
-            position: "relative",
-            // display: "flex",
-            // alignItems: "center",
-          }}
-        >
+
+        <li className={styles.hiddenLinksToggle}>
           <SvgIcon
             src={IconsEnum.dots}
             onClick={() => setIsOpenHiddenLinks(!isOpenHiddenLinks)}
           />
-          <DropDown isOpen={isOpenHiddenLinks} setIsOpen={setIsOpenHiddenLinks}>
-            123
+          <DropDown
+            isOpen={isOpenHiddenLinks}
+            setIsOpen={setIsOpenHiddenLinks}
+            className={styles.hiddenLinksDropDown}
+          >
+            <ul
+              className={styles.hiddenLinksList}
+              onClick={() => setIsOpenHiddenLinks(!isOpenHiddenLinks)}
+            >
+              {navBarLinks.map((link, index) => (
+                <li
+                  key={index}
+                  onClick={() => setActiveTab(link)}
+                  className={`dropdown-link-${link.title.toLowerCase()}`}
+                  style={{ display: "none" }}
+                >
+                  <Link href={link.path}>
+                    <Text
+                      size={TextSizeEnum.S14}
+                      fontWeight={FontWeightEnum.FW600}
+                      className={classNames(styles.linkText, {
+                        [styles.active]: link.title === activeTab.title,
+                      })}
+                    >
+                      {link.title}
+                    </Text>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </DropDown>
-        </span>
+        </li>
       </ul>
     </nav>
   );
