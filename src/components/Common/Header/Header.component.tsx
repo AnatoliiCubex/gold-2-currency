@@ -10,9 +10,12 @@ import { currencyOptions } from "@components/UI/Select/constants";
 import { Button, ButtonVariantEnum } from "@components/UI/Button";
 
 import styles from "./Header.module.scss";
+import { useMediaQuery } from "@mantine/hooks";
 
 export const HeaderComponent = () => {
   const headerClassName = classNames(styles.header, "container");
+  const screenLowerThan650px = useMediaQuery("(max-width: 650px)");
+  const screenLowerThan550px = useMediaQuery("(max-width: 550px)");
 
   return (
     <header className={headerClassName}>
@@ -24,11 +27,15 @@ export const HeaderComponent = () => {
       </div>
 
       <div className={styles.selectAndButtonsContainer}>
-        <Select id='currencySelector' options={currencyOptions} />
-        <div className={styles.buttonsContainer}>
-          <Link href=''>
-            <Button text='Sign Up' variant={ButtonVariantEnum.text} />
-          </Link>
+        {!screenLowerThan650px && (
+          <Select id='currencySelector' options={currencyOptions} />
+        )}
+        <div className={"buttonsContainer"}>
+          {!screenLowerThan550px && (
+            <Link href=''>
+              <Button text='Sign Up' variant={ButtonVariantEnum.text} />
+            </Link>
+          )}
           <Link href=''>
             <Button text='Log in' />
           </Link>

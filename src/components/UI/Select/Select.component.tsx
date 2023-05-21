@@ -10,6 +10,7 @@ import { FontWeightEnum, Text, TextSizeEnum } from "../Text";
 
 // import { currencyOptions } from "./constants";
 import styles from "./Select.module.scss";
+import classNames from "classnames";
 
 type SelectOptionType = { label: string; value: string } | null;
 type Props = {
@@ -19,14 +20,20 @@ type Props = {
     label: string;
     icon?: IconsEnum;
   }[];
+  className?: string;
 };
 
-export const SelectComponent: React.FC<Props> = ({ id, options }) => {
+export const SelectComponent: React.FC<Props> = ({
+  id,
+  options,
+  className,
+}) => {
   const { Option, SingleValue } = components;
   const [selectedOption, setSelectedOption] = useState<SelectOptionType>(
     options[0]
   );
 
+  const selectClassName = classNames(styles.select, " myTransition", className);
   const handleChange = (
     newValue: SingleValue<SelectOptionType>
     // actionMeta: ActionMeta<SelectOptionType>
@@ -57,7 +64,7 @@ export const SelectComponent: React.FC<Props> = ({ id, options }) => {
   return (
     <Select
       instanceId={id}
-      className={styles.select + " myTransition"}
+      className={selectClassName}
       classNamePrefix={"react-select"}
       options={options}
       value={selectedOption}

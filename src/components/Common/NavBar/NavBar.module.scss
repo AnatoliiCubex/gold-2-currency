@@ -1,5 +1,5 @@
 .navBar {
-  stroke: var(--white);
+  // stroke: var(--white);
   & .linksList {
     display: flex;
     align-items: center;
@@ -44,16 +44,15 @@
   & .hiddenLinksDropDown {
     top: 45px;
     min-width: 140px;
+    padding-bottom: 15px;
+    background-color: var(--dark);
     white-space: nowrap;
     max-height: unset;
     border-radius: 0;
   }
 
   & .hiddenLinksList {
-    padding: 15px 0px;
     padding-top: 5px;
-    gap: 0px;
-    flex-direction: column;
     background-color: var(--dark);
 
     & li {
@@ -66,10 +65,25 @@
       cursor: pointer !important;
       line-height: 21px;
       padding: 8px 12px;
+
       &:hover {
         background: rgba(44, 62, 103, 0.2) !important;
         border-right: 2px solid #e9b109 !important;
+
         & a * {
+          color: var(--yellow-hover);
+        }
+      }
+
+      & .dropDownLinkText {
+        position: relative;
+        color: var(--white);
+
+        &.active {
+          color: var(--yellow);
+        }
+
+        &:hover {
           color: var(--yellow-hover);
         }
       }
@@ -107,6 +121,31 @@
 
 .change .bar3 {
   transform: translate(0, -7px) rotate(45deg);
+}
+
+.dropDownSelect {
+  margin: unset !important;
+  width: 100%;
+
+  border-bottom: 1px solid #ffffff20 !important;
+  margin-top: 7px !important;
+  margin-bottom: 16px !important;
+
+  & [class*="react-select__menu"] {
+    position: unset !important;
+    padding: 0px !important;
+
+    & [class*="react-select__option"] {
+      padding-left: 0px !important;
+    }
+  }
+}
+
+.dropDownButtons {
+  height: 100vh;
+  & a {
+    height: fit-content;
+  }
 }
 
 @media (max-width: 1340px) {
@@ -178,20 +217,50 @@
 
   .navBar {
     & .hiddenLinksDropDown {
-      padding: 0 4.375rem;
+      padding: 0 1.4rem;
       top: 79px;
       width: 100vw;
-      height: 100vh;
-      max-height: min-content !important;
+      max-height: unset !important;
       background-color: var(--dark);
     }
 
     & .hiddenLinksList {
+      height: 100vh;
       & li {
         padding: 11px;
         padding-left: 0px;
         max-height: 40px;
+        border-top: 1px solid #ffffff20;
+
+        &:last-of-type {
+          border-bottom: 1px solid #ffffff20;
+        }
       }
     }
+  }
+}
+
+@media (max-width: 650px) {
+  .navBar {
+    & .hiddenLinksDropDown {
+      top: 79px;
+      width: 100vw;
+      max-height: unset !important;
+      background-color: var(--dark);
+    }
+
+    & .hiddenLinksList {
+      height: fit-content;
+    }
+  }
+
+  .dropDownSelect {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 550px) {
+  .dropDownSelect {
+    height: fit-content;
   }
 }

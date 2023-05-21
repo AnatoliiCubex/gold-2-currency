@@ -11,3 +11,14 @@
 .fitContent {
   width: fit-content;
 }
+
+.buttonsContainer {
+  display: flex;
+  gap: 23.5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.4rem;
+  }
+}

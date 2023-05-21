@@ -8,10 +8,16 @@ import { navBarLinks } from "./constants";
 import { DropDown } from "@components/UI/DropDown";
 
 import styles from "./NavBar.module.scss";
+import { useMediaQuery } from "@mantine/hooks";
+import { Select } from "@components/UI/Select";
+import { currencyOptions } from "@components/UI/Select/constants";
+import { Button, ButtonVariantEnum } from "@components/UI/Button";
 
 export const NavBarComponent = () => {
   const [activeTab, setActiveTab] = useState(navBarLinks[0]);
   const [isOpenHiddenLinks, setIsOpenHiddenLinks] = useState(false);
+  const screenLowerThan650px = useMediaQuery("(max-width: 650px)");
+  const screenLowerThan550px = useMediaQuery("(max-width: 550px)");
 
   return (
     <nav className={styles.navBar + " myTransition"}>
@@ -67,7 +73,7 @@ export const NavBarComponent = () => {
                     <Text
                       size={TextSizeEnum.S14}
                       fontWeight={FontWeightEnum.FW600}
-                      className={classNames(styles.linkText, {
+                      className={classNames(styles.dropDownLinkText, {
                         [styles.active]: link.title === activeTab.title,
                       })}
                     >
@@ -77,6 +83,24 @@ export const NavBarComponent = () => {
                 </li>
               ))}
             </ul>
+            {screenLowerThan650px && (
+              <Select
+                id='dropDownCurrencySelector'
+                options={currencyOptions}
+                className={styles.dropDownSelect}
+              />
+            )}
+            {screenLowerThan550px && (
+              <div className={"buttonsContainer " + styles.dropDownButtons}>
+                <Link href=''>
+                  <Button text='Sign Up' variant={ButtonVariantEnum.text} />
+                </Link>
+
+                <Link href=''>
+                  <Button text='Log in' />
+                </Link>
+              </div>
+            )}
           </DropDown>
         </li>
       </ul>
