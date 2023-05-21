@@ -242,13 +242,6 @@
 
 @media (max-width: 650px) {
   .navBar {
-    & .hiddenLinksDropDown {
-      top: 79px;
-      width: 100vw;
-      max-height: unset !important;
-      background-color: var(--dark);
-    }
-
     & .hiddenLinksList {
       height: fit-content;
     }

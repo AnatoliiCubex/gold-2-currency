@@ -21,18 +21,19 @@ export const HeaderComponent = () => {
   return (
     <header className={headerClassName}>
       <div className={styles.logoAndNavBarContainer}>
-        {screenLowerThan550px && !isOpenHiddenLinks && (
+        {!(isOpenHiddenLinks && screenLowerThan550px) && (
           <div className={styles.logoContainer}>
             <Image src={"/images/logo.png"} fill alt='logo' priority />
           </div>
         )}
+
         <NavBar
           isOpenHiddenLinks={isOpenHiddenLinks}
           setIsOpenHiddenLinks={setIsOpenHiddenLinks}
         />
       </div>
 
-      {screenLowerThan550px && !isOpenHiddenLinks && (
+      {!(isOpenHiddenLinks && screenLowerThan550px) && (
         <div className={styles.selectAndButtonsContainer}>
           {!screenLowerThan650px && (
             <Select id='currencySelector' options={currencyOptions} />
