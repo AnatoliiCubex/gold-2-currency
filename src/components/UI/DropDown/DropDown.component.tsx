@@ -21,7 +21,13 @@ export const DropDownComponent = ({
 }: DropDownProps) => {
   const [height, setHeight] = useState(0);
   const dropDown = useRef<HTMLDivElement>(null);
-  const ref = useClickOutside(() => setIsOpen(false));
+  const ref = useClickOutside(() => {
+    if (isOpen) {
+      setTimeout(() => setIsOpen(false), 100);
+    }
+    return;
+  });
+
   const DropDownClass = classNames(
     "dropDown",
     {

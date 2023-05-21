@@ -1,4 +1,7 @@
 .dropDown {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease;
   overflow: hidden;
   position: absolute;
   left: 0;
@@ -25,6 +28,7 @@
 .dropDown.dropDown-active {
   opacity: 1;
   pointer-events: all;
+  grid-template-rows: 1fr;
 }
 
 .dropDown_variant_accordion {
@@ -38,6 +42,7 @@
 }
 
 .children {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }

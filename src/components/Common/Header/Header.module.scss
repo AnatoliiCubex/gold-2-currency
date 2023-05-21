@@ -35,3 +35,9 @@
   display: flex;
   gap: 23.5px;
 }
+
+@media (max-width: 768px) {
+  .logoContainer {
+    order: 2;
+  }
+}
