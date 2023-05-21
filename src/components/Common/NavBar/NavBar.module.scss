@@ -147,10 +147,6 @@
   }
 
   .navBar {
-    // & .linksList {
-    //   display: none;
-    // }
-
     & .hiddenLinksList {
       & li {
         padding: 11px;
@@ -158,8 +154,4 @@
       }
     }
   }
-
-  // .hiddenLinksToggle {
-  //   display: none;
-  // }
 }
