@@ -6,16 +6,21 @@ import { FontWeightEnum, Text, TextSizeEnum } from "@components/UI/Text";
 import { navBarLinks } from "./constants";
 
 import { DropDown } from "@components/UI/DropDown";
-
-import styles from "./NavBar.module.scss";
 import { useMediaQuery } from "@mantine/hooks";
+
 import { Select } from "@components/UI/Select";
 import { currencyOptions } from "@components/UI/Select/constants";
 import { Button, ButtonVariantEnum } from "@components/UI/Button";
 
-export const NavBarComponent = () => {
+import styles from "./NavBar.module.scss";
+import { NavBarProps } from "./NavBar.types";
+
+export const NavBarComponent: React.FC<NavBarProps> = ({
+  isOpenHiddenLinks,
+  setIsOpenHiddenLinks,
+}) => {
   const [activeTab, setActiveTab] = useState(navBarLinks[0]);
-  const [isOpenHiddenLinks, setIsOpenHiddenLinks] = useState(false);
+
   const screenLowerThan650px = useMediaQuery("(max-width: 650px)");
   const screenLowerThan550px = useMediaQuery("(max-width: 550px)");
 
@@ -93,11 +98,15 @@ export const NavBarComponent = () => {
             {screenLowerThan550px && (
               <div className={"buttonsContainer " + styles.dropDownButtons}>
                 <Link href=''>
-                  <Button text='Sign Up' variant={ButtonVariantEnum.text} />
+                  <Button
+                    text='Sign Up'
+                    variant={ButtonVariantEnum.outlined}
+                    size='sm'
+                  />
                 </Link>
 
                 <Link href=''>
-                  <Button text='Log in' />
+                  <Button text='Log in' size='sm' />
                 </Link>
               </div>
             )}
