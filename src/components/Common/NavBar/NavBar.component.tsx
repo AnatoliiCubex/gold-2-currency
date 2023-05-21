@@ -1,26 +1,26 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import Link from "next/link";
-
-import { FontWeightEnum, Text, TextSizeEnum } from "@components/UI/Text";
-import { navBarLinks } from "./constants";
-
-import { DropDown } from "@components/UI/DropDown";
 import { useMediaQuery } from "@mantine/hooks";
 
+import { FontWeightEnum, Text, TextSizeEnum } from "@components/UI/Text";
+import { DropDown } from "@components/UI/DropDown";
 import { Select } from "@components/UI/Select";
 import { currencyOptions } from "@components/UI/Select/constants";
 import { Button, ButtonVariantEnum } from "@components/UI/Button";
 
-import styles from "./NavBar.module.scss";
 import { NavBarProps } from "./NavBar.types";
+import { navBarLinks } from "./constants";
+
+import styles from "./NavBar.module.scss";
+import { useCurrency } from "../../../context/CurrencyContext";
 
 export const NavBarComponent: React.FC<NavBarProps> = ({
   isOpenHiddenLinks,
   setIsOpenHiddenLinks,
 }) => {
   const [activeTab, setActiveTab] = useState(navBarLinks[0]);
-
+  const { currency, changeCurrency } = useCurrency();
   const screenLowerThan650px = useMediaQuery("(max-width: 650px)");
   const screenLowerThan550px = useMediaQuery("(max-width: 550px)");
 
@@ -90,8 +90,10 @@ export const NavBarComponent: React.FC<NavBarProps> = ({
             </ul>
             {screenLowerThan650px && (
               <Select
-                id='dropDownCurrencySelector'
+                id='currencySelector'
+                value={currency}
                 options={currencyOptions}
+                setOptions={changeCurrency}
                 className={styles.dropDownSelect}
               />
             )}

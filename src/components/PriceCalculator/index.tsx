@@ -1,1 +1,1 @@
-export { PriceCalculatorComponent as PriceCalculator } from "./PriceCalculator.component";
+export { PriceCalculatorComponent as PriceCalculator } from "./Pricecalculator.component";

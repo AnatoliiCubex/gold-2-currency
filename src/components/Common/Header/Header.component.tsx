@@ -11,10 +11,12 @@ import { Button, ButtonVariantEnum } from "@components/UI/Button";
 
 import styles from "./Header.module.scss";
 import { useMediaQuery } from "@mantine/hooks";
+import { useCurrency } from "../../../context/CurrencyContext";
 
 export const HeaderComponent = () => {
   const [isOpenHiddenLinks, setIsOpenHiddenLinks] = useState(false);
   const headerClassName = classNames(styles.header, "container");
+  const { currency, changeCurrency } = useCurrency();
   const screenLowerThan650px = useMediaQuery("(max-width: 650px)");
   const screenLowerThan550px = useMediaQuery("(max-width: 550px)");
 
@@ -36,7 +38,12 @@ export const HeaderComponent = () => {
       {!(isOpenHiddenLinks && screenLowerThan550px) && (
         <div className={styles.selectAndButtonsContainer}>
           {!screenLowerThan650px && (
-            <Select id='currencySelector' options={currencyOptions} />
+            <Select
+              id='currencySelector'
+              value={currency}
+              options={currencyOptions}
+              setOptions={changeCurrency}
+            />
           )}
           <div className={"buttonsContainer"}>
             {!screenLowerThan550px && (

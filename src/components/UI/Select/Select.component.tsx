@@ -1,44 +1,43 @@
-import { useState } from "react";
-import Select, {
-  SingleValue,
-  // ActionMeta,
-  components,
-} from "react-select";
+import classNames from "classnames";
+import Select, { SingleValue, components } from "react-select";
 
 import { IconsEnum, SvgIcon } from "../SvgIcon";
 import { FontWeightEnum, Text, TextSizeEnum } from "../Text";
 
-// import { currencyOptions } from "./constants";
 import styles from "./Select.module.scss";
-import classNames from "classnames";
 
-type SelectOptionType = { label: string; value: string } | null;
+type SelectOptionType = {
+  label: string;
+  value: string;
+  icon?: IconsEnum;
+  exchange: number;
+} | null;
+
 type Props = {
   id: string;
+  value: SingleValue<SelectOptionType>;
   options: {
     value: string;
     label: string;
     icon?: IconsEnum;
+    exchange: number;
   }[];
+  setOptions: (newValue: SingleValue<SelectOptionType>) => void;
   className?: string;
 };
 
 export const SelectComponent: React.FC<Props> = ({
   id,
   options,
+  value,
+  setOptions,
   className,
 }) => {
   const { Option, SingleValue } = components;
-  const [selectedOption, setSelectedOption] = useState<SelectOptionType>(
-    options[0]
-  );
 
   const selectClassName = classNames(styles.select, " myTransition", className);
-  const handleChange = (
-    newValue: SingleValue<SelectOptionType>
-    // actionMeta: ActionMeta<SelectOptionType>
-  ) => {
-    setSelectedOption(newValue);
+  const handleChange = (newValue: SingleValue<SelectOptionType>) => {
+    setOptions(newValue);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -67,7 +66,7 @@ export const SelectComponent: React.FC<Props> = ({
       className={selectClassName}
       classNamePrefix={"react-select"}
       options={options}
-      value={selectedOption}
+      value={value}
       onChange={handleChange}
       isSearchable={false}
       components={{
