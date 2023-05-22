@@ -10,7 +10,11 @@
     background-color: transparent;
   }
 
-  & [class*="-ValueContainer"] {
+  // & [class*="-ValueContainer"] {
+  //   padding: 0px;
+  // }
+
+  & [class*="value-container"] {
     padding: 0px;
   }
 
