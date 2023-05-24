@@ -27,6 +27,7 @@
     font-size: 14px;
     font-weight: 600;
     display: flex !important;
+    margin: 0px !important;
     align-items: center;
     gap: 8px;
   }
@@ -100,7 +101,7 @@
     min-width: 100%;
     background-color: var(--dark) !important;
     top: 44px !important;
-    left: -10px;
+    left: -12px;
     box-shadow: unset !important;
 
     &-list {

@@ -47,11 +47,9 @@ export const NavBarComponent: React.FC<NavBarProps> = ({
           </li>
         ))}
 
-        <li
-          className={styles.hiddenLinksToggle}
-          onClick={() => setIsOpenHiddenLinks(!isOpenHiddenLinks)}
-        >
+        <li className={styles.hiddenLinksToggle}>
           <div
+            onClick={() => setIsOpenHiddenLinks(!isOpenHiddenLinks)}
             className={classNames("burger-icon-container", {
               change: isOpenHiddenLinks,
             })}
